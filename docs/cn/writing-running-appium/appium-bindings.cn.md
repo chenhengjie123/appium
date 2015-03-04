@@ -1,33 +1,32 @@
 # Appium 客户端库
 
-Appium 有对应以下语言的客户端库:
+Appium 有以下语言的库:
 
 语言 | 代码
       :--|--:
-[Ruby][rubygems]              | [GitHub](https://github.com/appium/ruby_lib)
-[Python][pypi]                | [GitHub](https://github.com/appium/python-client)
-[Java][maven]                 | [GitHub](https://github.com/appium/java-client)
-[JavaScript][npm]             | [GitHub](https://github.com/admc/wd)
-[PHP][php]                    | [GitHub](https://github.com/appium/php-client)
-[C#][nuget]                   | [GitHub](https://github.com/appium/appium-dotnet-driver)
-[Objective-C][cocoapods]      | [GitHub](https://github.com/appium/selenium-objective-c)
+[Ruby][rubygems]  | [GitHub](https://github.com/appium/ruby_lib)
+[Python][pypi]    | [GitHub](https://github.com/appium/python-client)
+[Java][maven]     | [GitHub](https://github.com/appium/java-client)
+[JavaScript][npm] | [GitHub](https://github.com/admc/wd)
+[PHP][php]        | [GitHub](https://github.com/appium/php-client)
+[C#][nuget]       | [GitHub](https://github.com/appium/appium-dotnet-driver)
 
+[rubygems]: http://rubygems.org/gems/appium_lib
+[pypi]:     https://pypi.python.org/pypi/Appium-Python-Client
+[maven]:    https://search.maven.org/#search%7Cga%7C1%7Cg%3Aio.appium%20a%3Ajava-client
+[npm]:      https://www.npmjs.org/package/wd
+[php]:      https://github.com/appium/php-client
+[nuget]:    http://www.nuget.org/packages/Appium.WebDriver/
 
-[rubygems]:       http://rubygems.org/gems/appium_lib
-[pypi]:           https://pypi.python.org/pypi/Appium-Python-Client
-[maven]:          https://search.maven.org/#search%7Cga%7C1%7Cg%3Aio.appium%20a%3Ajava-client
-[npm]:            https://www.npmjs.org/package/wd
-[php]:            https://github.com/appium/php-client
-[nuget]:          http://www.nuget.org/packages/Appium.WebDriver/
-[cocoapods]:      https://github.com/appium/selenium-objective-c
-
-注意有些方法，比如 `endTestCoverage()` 目前还没有什么用。
+注意有些方法，比如 `endTestCoverage()` 和 `complexFind()` 目前还没有什么用。
 只有[这个问题](https://github.com/appium/appium/issues/2448)修复， 完整的覆盖率支持才会添加。
-如果你一定要用这些方法，请查看相应的文档。
+一旦[这个问题](https://github.com/appium/appium/issues/2264)修复，`complexFind()` 将被移除。
+如果你一定想要用这些方法，请查看相应的文档。
 
 ## 锁定
 
 锁定屏幕
+
 
 
 ```ruby
@@ -46,23 +45,17 @@ driver.lockScreen(3);
 ```
 
 ```javascript
-// javascript
-driver.lock(3)
+todo: javascript
 ```
 
 ```php
-// php
-$this->lock(3);
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.LockDevice(3);
 ```
-
-```objectivec
-// objective c
-[driver lockDeviceScreen:3];
 
 ## 将 app 置于后台
 
@@ -84,28 +77,21 @@ driver.runAppInBackground(5);
 ```
 
 ```javascript
-// javascript
-driver.backgroundApp(5)
+todo: javascript
 ```
 
 ```php
-// php
-$this->backgroundApp(5);
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.BackgroundApp(5);
 ```
 
-```objectivec
-// objective c
-[driver runAppInBackground:3];
-```
- 
-## 收起键盘
+## 收起键盘(iOS only)
 
-收起键盘
+在 iOS 上收起键盘
 
 ```ruby
 # ruby
@@ -123,104 +109,16 @@ driver.hideKeyboard();
 ```
 
 ```javascript
-// javascript
-driver.hideKeyboard()
+todo: javascript
 ```
 
 ```php
-// php
-$this->hideKeyboard();
-$this->hideKeyboard(array('strategy' => 'pressKey', 'key' => 'Done'));
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.HideKeyboard("Done");
-```
-
-```objectivec
-// objective c
-[driver hideKeyboard];
-```
-### Start Activity
-
-Open an activity in the current app or start a new app and open an activity *Android only*
-
-在当前应用中打开一个 activity 或者启动一个新应用并打开一个 activity 。 *只能在 Android 上使用*
-
-```java
-// java
-driver.startActivity("appPackage","com.example.android.apis", null, null);
-```
-
-```javascript
-// javascript
-driver.startActivity({appPackage: 'com.example.android.apis', appActivity: '.Foo'}, cb);
-```
-
-```python
-# python
-driver.start_activity('com.example.android.apis', '.Foo')
-```
-
-```ruby
-# ruby
-start_activity app_package: 'io.appium.android.apis', app_activity: '.accessibility.AccessibilityNodeProviderActivity'
-```
-
-```csharp
-// c#
-driver.StartActivity("com.example.android.apis", ".Foo");
-```
-
-```php
-// php
-$this->startActivity(array("appPackage" => "com.example.android.apis",
-                            "appActivity" => ".Foo"));
-```
-
-```objectivec
-// objective c
-[driver startActivity:@"com.example.android.apis" package:@".Foo"];
-```
-
-### 打开通知栏
-
-打开下拉通知栏 *只能在 Android 上使用*
-
-```java
-// java
-driver.openNotifications();
-```
-
-```javascript
-// javascript
-driver.openNotifications(cb);
-```
-
-```python
-# python
-driver.open_notifications()
-```
-
-```ruby
-# ruby
-openNotifications
-```
-
-```csharp
-// c#
-driver.OpenNotifications();
-```
-
-```php
-// php
-$this->openNotifications();
-```
-
-```objectivec
-// objective c
-[driver openNotifications];
 ```
 
 ## 是否已经安装
@@ -243,24 +141,16 @@ driver.isAppInstalled("com.example.android.apis")
 ```
 
 ```javascript
-// javascript
-driver.isAppInstalled("com.example.android.apis")
-  .then(function (isAppInstalled) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->isAppInstalled('com.example.android.apis');
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.IsAppInstalled("com.example.android.apis-");
-```
-
-```objectivec
-// objective c
-[driver isAppInstalled:@"com.example.android.apis-"];
 ```
 
 ## 安装应用
@@ -283,23 +173,16 @@ driver.installApp("path/to/my.apk")
 ```
 
 ```javascript
-// javascript
-driver.installApp("path/to/my.apk")
+todo: javascript
 ```
 
 ```php
-// php
-$this->installApp('path/to/my.apk');
+todo: php
 ```
 
 ```csharp
-// c#
+//csharp
 driver.InstallApp("path/to/my.apk");
-```
-
-```objectivec
-// objective c
-[driver installAppAtPath:@"path/to/my.apk"];
 ```
 
 ## 删除应用
@@ -322,23 +205,16 @@ driver.removeApp("com.example.android.apis")
 ```
 
 ```javascript
-// javascript
-driver.removeApp("com.example.android.apis")
+todo: javascript
 ```
 
 ```php
-// php
-$this->removeApp('com.example.android.apis');
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.RemoveApp("com.example.android.apis");
-```
-
-```objectivec
-// objective c
-[driver removeApp:@"com.example.android.apis"];
 ```
 
 ## 摇晃
@@ -361,23 +237,16 @@ driver.shake()
 ```
 
 ```javascript
-// javascript
-driver.shake()
+todo: javascript
 ```
 
 ```php
-// php
-$this->shake();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.ShakeDevice();
-```
-
-```objectivec
-// objective c
-[driver shakeDevice];
 ```
 
 ## 关闭应用
@@ -400,28 +269,21 @@ driver.closeApp()
 ```
 
 ```javascript
-// javascript
-driver.closeApp()
+todo: javascript
 ```
 
 ```php
-// php
-$this->closeApp();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.CloseApp();
-```
-
-```objectivec
-// objective c
-[driver closeApp];
 ```
 
 ## 启动
 
-根据服务关键字( desired capabilities )启动会话（ session ）。请注意这必须在设定 auto=Launch=false 关键字时才能生效。这不是用于启动指定的 app/activities --你可以使用 `start_activity` 做到这个效果。这是用来继续进行使用了 autoLaunch=false 关键字时的初始化（"启动"）流程的。
+启动应用
 
 ```ruby
 # ruby
@@ -439,23 +301,16 @@ driver.launchApp()
 ```
 
 ```javascript
-// javascript
-driver.launchApp()
+todo: javascript
 ```
 
 ```php
-// php
-$this->launchApp();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.LaunchApp();
-```
-
-```objectivec
-// objective c
-[driver launchApp];
 ```
 
 ## 重置
@@ -478,23 +333,16 @@ driver.resetApp()
 ```
 
 ```javascript
-// javascript
-driver.resetApp()
+todo: javascript
 ```
 
 ```php
-// php
-$this->reset();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.ResetApp();
-```
-
-```objectivec
-// objective c
-[driver resetApp];
 ```
 
 ## 可用上下文
@@ -517,23 +365,16 @@ driver.getContextHandles()
 ```
 
 ```javascript
-// javascript
-driver.contexts().then(function (contexts) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->contexts();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.GetContexts()
-```
-
-```objectivec
-// objective c
-NSArray *contexts = driver.allContexts;
 ```
 
 ## 当前上下文
@@ -556,23 +397,16 @@ driver.getContext()
 ```
 
 ```javascript
-// javascript
-driver.currentContext().then(function (context) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->context();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.GetContext()
-```
-
-```objectivec
-// objective c
-NSString *context = driver.context;
 ```
 
 ## 切换到默认的上下文
@@ -595,28 +429,23 @@ driver.context();
 ```
 
 ```javascript
-// javascript
-driver.context()
+todo: javascript
 ```
 
 ```php
-// php
-$this->context(NULL);
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.SetContext();
-```
-
-```objectivec
-// objective c
-[driver setContext:nil];
 ```
 
 ## 应用的字符串
 
-获取应用的字符串
+iOS 里是 Localizable.strings
+Android 里是 strings.xml
+
 
 ```ruby
 # ruby
@@ -630,34 +459,25 @@ driver.app_strings
 
 ```java
 // java
-driver.getAppStrings();
+driver.getAppString();
 ```
 
 ```javascript
-// javascript
-driver.getAppStrings().then(function (appStrings) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->appStrings();
-$this->appStrings('ru');
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.GetAppStrings();
-```
-
-```objectivec
-// objective c
-[driver appStrings];
-[driver appStringsForLanguage:"@ru"];
 ```
 
 ## 按键事件
 
-给设备发送一个按键事件
+发送一个按键事件给设备
 
 ```ruby
 # ruby
@@ -675,30 +495,22 @@ driver.sendKeyEvent(AndroidKeyCode.HOME);
 ```
 
 ```javascript
-// javascript
-driver.deviceKeyEvent(wd.SPECIAL_KEYS.Home)
+todo: javascript
 ```
 
 ```php
-// php
-$this->keyEvent('176');
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.KeyEvent("176");
-```
-
-```objectivec
-// objective c
-NSError *err;
-[driver triggerKeyEvent:176 metastate:0 error:&err];
 ```
 
 ## 当前 Activity
 
-只能在 Android 上使用
-获取当前 activity。
+Android only
+得到当前 activity。
 
 ```ruby
 # ruby
@@ -716,27 +528,22 @@ driver.currentActivity();
 ```
 
 ```javascript
-// javascript
-driver.getCurrentActivity().then(function (activity) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->currentActivity();
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.GetCurrentActivity();
 ```
 
-```objectivec
-// objective c
-NSError *err;
-[driver currentActivity];
-```
-
 ## 触摸动作 / 多点触摸动作
+
+An API for generating touch actions. This section of the documentation will be
+expanded upon soon.
 
 生成触摸动作的接口。这部分文档很快将会补充更多的内容进来。
 
@@ -762,46 +569,22 @@ perform();
 ```
 
 ```javascript
-// javascript
-var action = new wd.TouchAction(driver);
-action
-  .tap({el: el, x: 10, y: 10})
-  .release();
-return action.perform(); // returns a promise
+todo: javascript
 ```
 
 ```php
-// php
-$action = $this->initiateTouchAction();
-               ->press(array('element' => $el))
-               ->release()
-               ->perform();
-
-$action1 = $this->initiateTouchAction();
-$action1->press(array('element' => $els[0]))
-        ->moveTo(array('x' => 10, 'y' => 0))
-        ->moveTo(array('x' => 10, 'y' => -75))
-        ->moveTo(array('x' => 10, 'y' => -600))
-        ->release();
-
-$action2 = $this->initiateTouchAction();
-$action2->press(array('element' => $els[1]))
-        ->moveTo(array('x' => 10, 'y' => 10))
-        ->moveTo(array('x' => 10, 'y' => -300))
-        ->moveTo(array('x' => 10, 'y' => -600))
-        ->release();
-
-$multiAction = $this->initiateMultiAction();
-$multiAction->add($action1);
-$multiAction->add($action2);
-$multiAction->perform();
+todo: php
 ```
 
 ```csharp
-// c#
-ITouchAction action = new TouchAction(driver);
-action.Press(el, 10, 10).Release();
-action.Perform ();
+// csharp
+var touchAction1 = new TouchActions(this);
+touchAction1.Down(10, 10).Up(10, 10);
+
+var multiTouchAction = new MultiTouchAction(this);
+multiTouchAction.Add(touchAction1);
+
+PerformMultiTouchAction(multiTouchAction);
 ```
 
 ## 滑动
@@ -815,44 +598,30 @@ swipe start_x: 75, start_y: 500, end_x: 75, end_y: 0, duration: 0.8
 
 ```python
 # python
-driver.swipe(start=75, starty=500, endx=75, endy=0, duration=800)
+driver.swipe(75, 500, 75, 0, 0.8)
 ```
 
 ```java
 // java
-driver.swipe(75, 500, 75, 0, 0.8)
+driver.swipe(startx=75, starty=500, endx=75, endy=0, duration=800)
 ```
 
 ```javascript
-// javascript
-function swipe(opts) {
-  var action = new wd.TouchAction(this);
-  action
-    .press({x: opts.startX, y: opts.startY})
-    .wait(opts.duration)
-    .moveTo({x: opts.endX, y: opts.endY})
-    .release();
-  return action.perform();
-}
-wd.addPromiseChainMethod('swipe', swipe);
-// ...
-return driver.swipe({ startX: 75, startY: 500,
-  endX: 75,  endY: 0, duration: 800 });
+todo: javascript
 ```
 
 ```php
-// php
-$this->swipe(75, 500, 75, 0, 800);
+todo: php
 ```
 
 ```csharp
-// c#
 todo: c#
 ```
 
-## 捏（Pinch）
+## Pinch
 
-捏屏幕（双指往内/外移动来缩放屏幕）
+Places two fingers at the edges of the screen and brings them together.
+在 0% 到 100% 内双指缩放屏幕，
 
 ```ruby
 # ruby
@@ -870,49 +639,22 @@ driver.pinch(element);
 ```
 
 ```javascript
-// javascript
-function pinch(el) {
-  return Q.all([
-    el.getSize(),
-    el.getLocation(),
-  ]).then(function(res) {
-    var size = res[0];
-    var loc = res[1];
-    var center = {
-      x: loc.x + size.width / 2,
-      y: loc.y + size.height / 2
-    };
-    var a1 = new wd.TouchAction(this);
-    a1.press({el: el, x: center.x, y:center.y - 100}).moveTo({el: el}).release();
-    var a2 = new wd.TouchAction(this);
-    a2.press({el: el, x: center.x, y: center.y + 100}).moveTo({el: el}).release();
-    var m = new wd.MultiAction(this);
-    m.add(a1, a2);
-    return m.perform();
-  }.bind(this));
-};
-wd.addPromiseChainMethod('pinch', pinch);
-wd.addElementPromiseChainMethod('pinch', function() {
-  return this.browser.pinch(this);
-});
-// ...
-return driver.pinch(el);
-// ...
-return el.pinch();
+todo: javascript
 ```
 
 ```php
-$this->pinch($el);
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.Pinch(25, 25)
 ```
 
 ## Zoom
 
 放大屏幕
+在 100% 以上放大屏幕
 
 ```ruby
 # ruby
@@ -930,86 +672,16 @@ driver.zoom(element);
 ```
 
 ```javascript
-// javascript
-function zoom(el) {
-  return Q.all([
-    this.getWindowSize(),
-    this.getLocation(el),
-  ]).then(function(res) {
-    var size = res[0];
-    var loc = res[1];
-    var center = {
-      x: loc.x + size.width / 2,
-      y: loc.y + size.height / 2
-    };
-    var a1 = new wd.TouchAction(this);
-    a1.press({el: el}).moveTo({el: el, x: center.x, y: center.y - 100}).release();
-    var a2 = new wd.TouchAction(this);
-    a2.press({el: el}).moveTo({el: el, x: center.x, y: center.y + 100}).release();
-    var m = new wd.MultiAction(this);
-    m.add(a1, a2);
-    return m.perform();
-  }.bind(this));
-};
-wd.addPromiseChainMethod('zoom', zoom);
-wd.addElementPromiseChainMethod('zoom', function() {
-  return this.browser.zoom(this);
-});
-// ...
-return driver.zoom(el);
-// ...
-return el.zoom();
+todo: javascript
 ```
 
 ```php
-// php
-$this->zoom($el);
+todo: php
 ```
 
 ```csharp
-// c#
+# csharp
 driver.Zoom(100, 200);
-```
-
-### Scroll To
-
-滑动到某个元素。
-
-```ruby
-# ruby
-element = find_element :name, 'Element Name'
-execute_script "mobile: scrollTo", :element => element.ref
-```
-
-```python
-# python
-todo: python
-```
-
-```java
-// java
-WebElement element = driver.findElement(By.name("Element Name"));
-HashMap<String, String> arguments = new HashMap<String, String>();
-arguments.put("element", element.getId());
-(JavascriptExecutor)driver.executeScript("mobile: scrollTo", arguments);
-```
-
-```javascript
-// javascript
-return driver.elementByName().then(function (el) {
-  return driver.execute('mobile: scrollTo', {element: el.value});
-});
-```
-
-```php
-// php
-$els = $this->elements($this->using('class name')->value('android.widget.TextView'));
-$this->scroll($els[count($els) - 1], $els[0]);
-```
-
-```csharp
-// c#
-todo: csharp
 ```
 
 ## 拉出文件
@@ -1022,7 +694,7 @@ pull_file 'Library/AddressBook/AddressBook.sqlitedb'
 ```
 
 ```python
-# python
+// python
 driver.pull_file('Library/AddressBook/AddressBook.sqlitedb')
 ```
 
@@ -1032,18 +704,15 @@ driver.pullFile("Library/AddressBook/AddressBook.sqlitedb");
 ```
 
 ```javascript
-// javascript
-driver.pullFile("Library/AddressBook/AddressBook.sqlitedb")
-  .then(function (base64File) { /*...*/ })
+todo: javascript
 ```
 
 ```php
-// php
-$this->pullFile('Library/AddressBook/AddressBook.sqlitedb');
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.PullFile("Library/AddressBook/AddressBook.sqlitedb");
 ```
 
@@ -1073,62 +742,17 @@ driver.pushFile(path, data)
 ```
 
 ```javascript
-// javascript
-driver.pushFile(path, data)
+todo: javascript
 ```
 
 ```php
-// php
-$path = 'data/local/tmp/test_push_file.txt';
-$data = 'This is the contents of the file to push to the device.';
-$this->pushFile($path, base64_encode($data));
+todo: php
 ```
 
 ```csharp
-// c#
+// csharp
 driver.PushFile("/data/local/tmp/file.txt", "some data for the file");
 ```
-
-### 设置
-
-
-从这里你可以找到获取/设置 appium 系统设置的示例代码。
-想知道它如何工作，以及它支持哪些设置，请查看[关于设置的文档][/docs/en/advanced-concepts/settings.md]
-
-```ruby
-current_settings = get_settings
-update_settings someSetting: true
-```
-
-```python
-current_settings = driver.get_settings()
-driver.update_settings({"someSetting": true})
-```
-
-```java
-JsonObject settings = driver.getSettings()
-// java-client doesn't support setting arbitrary settings, just settings which are already provided by appium.
-// So for the 'ignoreUnimportantViews' setting, the following method exists:
-driver.ignoreUnimportantViews(true);
-```
-
-```javascript
-var settings = driver.settings();
-browser.updateSettings({'someSetting': true});
-```
-
-```php
-$settings = $this->getSettings();
-$this->updateSettings(array('cyberdelia' => "open"));
-```
-
-```csharp
-Dictionary<String, Object>settings = driver.GetSettings();
-// dotnet-driver doesn't support setting arbitrary settings, just settings which are already provided by appium.
-// So for the 'ignoreUnimportantViews' setting, the following method exists:
-driver.IgnoreUnimportantViews(true);
-```
-
 
 ## Appium 桌面应用
 
