@@ -7,7 +7,7 @@
 |`automationName`|你想使用的自动化测试引擎|`Appium` (默认) 或 `Selendroid`|
 |`platformName`|你要测试的手机操作系统|`iOS`, `Android`, 或 `FirefoxOS`|
 |`platformVersion`|手机操作系统版本|例如： `7.1`, `4.4`|
-|`deviceName`|使用的手机类型或模拟器类型|`iPhone Simulator`, `iPad Simulator`, `iPhone Retina 4-inch`, `Android Emulator`, `Galaxy S4`, 等。在 iOS 上，这个关键字的值必须是使用 `instruments -s devices` 得到的可使用的设备名称之一。在 Android 上，这个关键字的目前不起作用。|
+|`deviceName`|使用的手机类型或模拟器类型|`iPhone Simulator`, `iPad Simulator`, `iPhone Retina 4-inch`, `Android Emulator`, `Galaxy S4`, 等。在 iOS 上，这个关键字的值必须是使用 `instruments -s devices` 得到的可使用的设备名称之一。在 Android 上，这个关键字目前不起作用。|
 |`app`|`.ipa` or `.apk`文件所在的本地绝对路径或者远程路径,也可以是一个包括两者之一的`.zip`. Appium会先尝试安装路径对应的应用在适当的真机或模拟器上.针对Android系统，如果你指定`app-package`和`app-activity`(具体见下面)的话，那么就可以不指定`app`. **会与 `browserName`冲突** |比如`/abs/path/to/my.apk`或`http://myapp.com/app.ipa`|
 |`browserName`|需要进行自动化测试的手机 web 浏览器名称。如果是对应用进行自动化测试，这个关键字的值应为空。|iOS 系统上可以用 'Safari' ，Android 系统上可以用 'Chrome', 'Chromium', 或 'Browser'。|
 |`newCommandTimeout`|设置命令超时时间，单位：秒。达到超时时间仍未接收到新的命令时 Appium 会假设客户端退出然后自动结束会话。|比如. `60`
@@ -28,7 +28,7 @@
 |----|-----------|-------|
 |`appActivity`| 你要从你的应用包中启动的 Android Activity 名称。它通常需要在前面添加 `.` （如：使用`.MainActivity` 而不是 `MainActivity`）|`MainActivity`, `.Settings`|
 |`appPackage`| 你想运行的Android应用的包名|比如`com.example.android.myApp`, `com.android.settings`|
-|`appWaitActivity`| 你想要等待启动的Android Activity名称|`SplashActivity`|
+|`appWaitActivity`| 你想要等待启动的 Android Activity 名称|`SplashActivity`|
 |`deviceReadyTimeout`| 设置等待一个模拟器或真机准备就绪的超时时间|`5`|
 |`androidCoverage`| 完全符合条件的 instrumentation 类。作为命令 `adb shell am instrument -e coverage true -w` 的 `-w` 参数。| `com.my.Pkg/com.my.Pkg.instrumentation.MyInstrumentation`|
 |`enablePerformanceLogging`| (仅适用于 Chrome 和 webview) 开启 Chromedriver 的性能日志。（默认 `false`）| `true`, `false`|
@@ -66,7 +66,7 @@
 |`udid`| 连接的真实设备的唯一设备编号（ Unique device identifier ）|如 `1ae203187fc012g`|
 |`launchTimeout`| 以毫秒为单位，在 Appium 运行失败之前设置一个等待 instruments 的时间 |比如. `20000`|
 |`locationServicesEnabled`| (Sim-only) 强制打开或关闭定位服务。默认值是保持当前模拟器的设定|`true` 或 `false`|
-|`locationServicesAuthorized`| (Sim-only) 通过修改 plist 文件设定是否允许应用使用定位服务，从而避免定位服务的警告出现。默认值是保持当前模拟器的设定。请注意在使用这个关键字是，你同时需要使用 `bundleId` 关键字来发送你的应用的 bundle ID。|`true` 或者 `false`|
+|`locationServicesAuthorized`| (Sim-only) 通过修改 plist 文件设定是否允许应用使用定位服务，从而避免定位服务的警告出现。默认值是保持当前模拟器的设定。请注意在使用这个关键字时，你同时需要使用 `bundleId` 关键字来发送你的应用的 bundle ID。|`true` 或者 `false`|
 |`autoAcceptAlerts`| 当 iOS 的个人信息访问警告（如 位置、联系人、图片）出现时，自动选择接受( Accept )。默认值 `false`.|`true` 或者 `false`|
 |`autoDismissAlerts`| 当 iOS 的个人信息访问警告（如 位置、联系人、图片）出现时，自动选择不接受( Dismiss )。默认值 `false`。|`true` 或者 `false`|
 |`nativeInstrumentsLib`| 使用原生 intruments 库（即关闭 instruments-without-delay ）|`true` 或者 `false`|
@@ -81,4 +81,4 @@
 |`showIOSLog`| 是否在 Appium 的日志中显示设备的日志。默认值 `false`|`true` 或者 `false`|
 |`sendKeyStrategy`| 输入文字到文字框的策略。模拟器默认值：`oneByOne`（一个接着一个）。真实设备默认值：`grouped`（分组输入） |`oneByOne`, `grouped` 或 `setValue`|
 |`screenshotWaitTimeout`| 以秒为单位，生成屏幕截图的最长等待时间。默认值： 10。 |如 `5`|
-|`waitForAppScript`| 用于判断应用是否被启动的 iOS 自动化脚本代码。默认情况下系统等待直到页面内容非空。结果必须是布尔类型。 |例如 `true;`, `target.elements().length > 0;`, `$.delay(5000); true;` |
+|`waitForAppScript`| 用于判断 “应用是否被启动“ 的 iOS 自动化脚本代码。默认情况下系统等待直到页面内容非空。结果必须是布尔类型。 |例如 `true;`, `target.elements().length > 0;`, `$.delay(5000); true;` |

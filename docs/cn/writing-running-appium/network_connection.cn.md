@@ -1,6 +1,7 @@
 ## 调整网络设置
 
 Selenium 的 [移动设备 JSON 连接协议](https://code.google.com/p/selenium/source/browse/spec-draft.md?repo=mobile) 支持一个获取和设置设备网络连接的 [API](https://code.google.com/p/selenium/source/browse/spec-draft.md?repo=mobile#104) 。这个 API 通过位掩码（bitmask）工作，把一个整形数据分配给所有可能的状态：
+
 | 值 (别名)           | 数据连接 | Wifi 连接 | 飞行模式 |
 | ------------------ | ---- | ---- | ------------- |
 | 0 (什么都没有)       | 0    | 0    | 0 |

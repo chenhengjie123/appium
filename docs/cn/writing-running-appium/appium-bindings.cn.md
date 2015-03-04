@@ -63,6 +63,7 @@ driver.LockDevice(3);
 ```objectivec
 // objective c
 [driver lockDeviceScreen:3];
+```
 
 ## 将 app 置于后台
 
@@ -142,9 +143,7 @@ driver.HideKeyboard("Done");
 // objective c
 [driver hideKeyboard];
 ```
-### Start Activity
-
-Open an activity in the current app or start a new app and open an activity *Android only*
+### 启动 Activity
 
 在当前应用中打开一个 activity 或者启动一个新应用并打开一个 activity 。 *只能在 Android 上使用*
 
@@ -184,7 +183,7 @@ $this->startActivity(array("appPackage" => "com.example.android.apis",
 [driver startActivity:@"com.example.android.apis" package:@".Foo"];
 ```
 
-### 打开通知栏
+### 打开通知栏 (Notifications)
 
 打开下拉通知栏 *只能在 Android 上使用*
 
@@ -341,7 +340,7 @@ driver.RemoveApp("com.example.android.apis");
 [driver removeApp:@"com.example.android.apis"];
 ```
 
-## 摇晃
+## 摇晃 (Shake)
 
 模拟设备摇晃
 
@@ -419,9 +418,9 @@ driver.CloseApp();
 [driver closeApp];
 ```
 
-## 启动
+## 启动 (Launch)
 
-根据服务关键字( desired capabilities )启动会话（ session ）。请注意这必须在设定 auto=Launch=false 关键字时才能生效。这不是用于启动指定的 app/activities --你可以使用 `start_activity` 做到这个效果。这是用来继续进行使用了 autoLaunch=false 关键字时的初始化（"启动"）流程的。
+根据服务关键字( desired capabilities )启动会话（ session ）。请注意这必须在设定 `autoLaunch=false` 关键字时才能生效。这不是用于启动指定的 app/activities --你可以使用 `start_activity` 做到这个效果。这是用来继续进行使用了 `autoLaunch=false` 关键字时的初始化（"启动"）流程的。
 
 ```ruby
 # ruby
@@ -458,7 +457,7 @@ driver.LaunchApp();
 [driver launchApp];
 ```
 
-## 重置
+## 重置 (Reset)
 
 应用重置
 
@@ -497,7 +496,7 @@ driver.ResetApp();
 [driver resetApp];
 ```
 
-## 可用上下文
+## 可用上下文 (context)
 
 列出所有的可用上下文
 
@@ -536,7 +535,7 @@ driver.GetContexts()
 NSArray *contexts = driver.allContexts;
 ```
 
-## 当前上下文
+## 当前上下文 (context)
 
 列出当前上下文
 
@@ -575,7 +574,7 @@ driver.GetContext()
 NSString *context = driver.context;
 ```
 
-## 切换到默认的上下文
+## 切换到默认的上下文 (context)
 
 将上下文切换到默认上下文
 
@@ -614,7 +613,7 @@ driver.SetContext();
 [driver setContext:nil];
 ```
 
-## 应用的字符串
+## 应用的字符串 (App Strings)
 
 获取应用的字符串
 
@@ -655,7 +654,7 @@ driver.GetAppStrings();
 [driver appStringsForLanguage:"@ru"];
 ```
 
-## 按键事件
+## 按键事件 (Key Event)
 
 给设备发送一个按键事件
 
@@ -736,7 +735,7 @@ NSError *err;
 [driver currentActivity];
 ```
 
-## 触摸动作 / 多点触摸动作
+## 触摸动作(TouchAction) / 多点触摸动作(MultiTouchAction)
 
 生成触摸动作的接口。这部分文档很快将会补充更多的内容进来。
 
@@ -804,7 +803,7 @@ action.Press(el, 10, 10).Release();
 action.Perform ();
 ```
 
-## 滑动
+## 滑动(Swipe)
 
 模拟用户滑动
 
@@ -852,7 +851,7 @@ todo: c#
 
 ## 捏（Pinch）
 
-捏屏幕（双指往内/外移动来缩放屏幕）
+捏屏幕（双指往内移动来缩小屏幕）
 
 ```ruby
 # ruby
@@ -910,9 +909,9 @@ $this->pinch($el);
 driver.Pinch(25, 25)
 ```
 
-## Zoom
+## 放大（Zoom）
 
-放大屏幕
+放大屏幕（双指往外移动来放大屏幕）
 
 ```ruby
 # ruby
@@ -971,7 +970,7 @@ $this->zoom($el);
 driver.Zoom(100, 200);
 ```
 
-### Scroll To
+### 滑动到（Scroll To）
 
 滑动到某个元素。
 
@@ -1012,7 +1011,7 @@ $this->scroll($els[count($els) - 1], $els[0]);
 todo: csharp
 ```
 
-## 拉出文件
+## 拉出文件（Pull File）
 
 从设备中拉出文件
 
@@ -1047,7 +1046,7 @@ $this->pullFile('Library/AddressBook/AddressBook.sqlitedb');
 driver.PullFile("Library/AddressBook/AddressBook.sqlitedb");
 ```
 
-## 推送文件
+## 推送文件(Push file)
 
 推送文件到设备中去
 
@@ -1093,7 +1092,7 @@ driver.PushFile("/data/local/tmp/file.txt", "some data for the file");
 
 
 从这里你可以找到获取/设置 appium 系统设置的示例代码。
-想知道它如何工作，以及它支持哪些设置，请查看[关于设置的文档][/docs/en/advanced-concepts/settings.md]
+想知道它如何工作，以及它支持哪些设置，请查看[关于设置的文档](/docs/en/advanced-concepts/settings.md)
 
 ```ruby
 current_settings = get_settings
