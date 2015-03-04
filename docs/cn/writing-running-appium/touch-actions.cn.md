@@ -9,9 +9,9 @@
 
 ### 触摸操作/多点触控 API的概述
 
-### 触摸操作
+### 触摸操作（TouchAction）
 
-*触摸操作* 对象包含一连串的事件。
+*TouchAction* 对象包含一连串的事件。
 
 在所有的appium客户端库中，触摸对象创建并给予了一连串的事件。
 
@@ -25,7 +25,7 @@
  * 取消（cancel）
  * 执行（perform）
 
-这里有一个通过虚拟代码创建动作的例子：
+这里有一个通过伪代码创建动作的例子：
 
 ```center
 TouchAction().press(el0).moveTo(el1).release()
@@ -43,7 +43,7 @@ appium客户端库有不同的方式来实现上述例子，比如：你可以�
 Appium客户端还允许人们直接通过驱动程序对象执行触摸操作, 而不是调用触摸操作对象的`perform`事件。
 
 
-在虚拟代码中，以下两个是等价的：
+在伪代码码中，以下两个是等价的：
 
 ```center
 TouchAction().tap(el).perform()
@@ -51,9 +51,9 @@ TouchAction().tap(el).perform()
 driver.perform(TouchAction().tap(el))
 ```
 
-### 多点触控
+### 多点触控（MultiTouch）
 
-*多点触控* 对象是触摸操作的集合。
+*MultiTouch* 对象是触摸操作的集合。
 
 多点触控手势只有两个方法，添加（ `add`）和执行（ `perform`）。
 
@@ -122,5 +122,5 @@ slider.sendKeys("0.1");
 
 **Android**
 
-与Android上的滑块进行交互的最佳方式是用触摸操作。
+与Android上的滑块进行交互的最佳方式是用触摸操作（TouchActions）。
 
