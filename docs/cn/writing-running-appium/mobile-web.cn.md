@@ -60,7 +60,7 @@ capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator")
 为了能够在真机上的Safari执行测试，我们使用了[SafariLauncher App](https://github.com/snevesbarros/SafariLauncher)来启动Safari。
 一旦Safari被启动，则使用[ios-webkit-webkit-proxy](https://github.com/google/ios-webkit-debug-proxy)来自动启动Safari的远程调试功能。
 
-** 提示:** 目前在ios-webkit-debug-proxy中有一个[问题](https://github.com/google/ios-webkit-debug-proxy/issues/38)。
+**提示:** 目前在ios-webkit-debug-proxy中有一个[问题](https://github.com/google/ios-webkit-debug-proxy/issues/38)。
 你必须添加信任才能开始运行ios-webkit-debug-proxy。
 
 ### 前期设置
@@ -101,7 +101,7 @@ $ node /lib/server/main.js -U <UDID>
 如果要在safari下的运行你的测试, 只需要简单的配置app为safari即可
 
 
-### Java Example
+### Java 范例
 
 ```java
 // java
@@ -121,24 +121,25 @@ driver.findElement(By.id("comments")).sendKeys("My comment"); //populate the com
 driver.quit();
 ```
 
-### Python Example
+### Python 范例
 
 ```python
 # python
-# setup the web driver and launch the webview app.
+# 设置驱动并启动 webview app.
 capabilities = { 'browserName': 'Safari' }
 driver = webdriver.Remote('http://localhost:4723/wd/hub', capabilities)
 
 # Navigate to the page and interact with the elements on the guinea-pig page using id.
+# 浏览网页，并使用ID与页面上的元素进行交互。
 driver.get('http://saucelabs.com/test/guinea-pig');
 div = driver.find_element_by_id('i_am_an_id')
-# check the text retrieved matches expected value
+# 对比结果
 assertEqual('I am a div', div.text)
 
-# populate the comments field by id
+# 按ID填写内容
 driver.find_element_by_id('comments').send_keys('My comment')
 
-# close the driver
+# 退出driver
 driver.quit()
 ```
 
@@ -173,7 +174,7 @@ class ContextTests extends PHPUnit_Extensions_AppiumTestCase
 
 需要做的准备:
 
-*  确认Chrome已经安装在了你的真机或模拟器上 (应用的包名是`com.android.chrome`) .在不编译chromiun的情况下, 不可能得到模拟器上的x86版本的chrome, 你可以运行一个ARM的模拟器然后从真机上获取一个Chrome的APK安装在模拟器上.
+*  确认Chrome已经安装在了你的真机或模拟器上 (应用的包名是`com.android.chrome`) .在不编译Chromiun的情况下, 不可能得到模拟器上的x86版本的chrome, 你可以运行一个ARM的模拟器然后从真机上获取一个Chrome的APK安装在模拟器上.
 *  如果你是使用[NPM](https://www.npmjs.org/package/appium)下载的，
 或者是在[.app](https://github.com/appium/appium-dot-app)运行的话，则你的工作已经完成。
 如果你是使用源码运行，reset会下载ChromeDriver并放在'build'。 
