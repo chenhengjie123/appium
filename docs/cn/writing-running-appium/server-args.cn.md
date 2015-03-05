@@ -18,8 +18,8 @@
 |`-U`, `--udid`|null|连接物理设备的唯一设备标识符|`--udid 1adsf-sdfas-asdf-123sdf`|
 |`-a`, `--address`|0.0.0.0|监听的 ip 地址|`--address 0.0.0.0`|
 |`-p`, `--port`|4723|监听的端口|`--port 4723`|
-|`-ca`, `--callback-address`|null|回收IP地址 (默认: 相同的IP地址)|`--callback-address 127.0.0.1`|
-|`-cp`, `--callback-port`|null|回收端口号 (默认: 相同的端口号)|`--callback-port 4723`|
+|`-ca`, `--callback-address`|null|回调IP地址 (默认: 相同的IP地址)|`--callback-address 127.0.0.1`|
+|`-cp`, `--callback-port`|null|回调端口号 (默认: 相同的端口号)|`--callback-port 4723`|
 |`-bp`, `--bootstrap-port`|4724|(Android-only) 连接设备的端口号|`--bootstrap-port 4724`|
 |`-k`, `--keep-artifacts`|false|弃用, 无效, 默认保留tmp目录下，每次运行前会清除该目录中的信息。 也可以参考 --trace-dir 。||
 |`-r`, `--backend-retries`|3|(iOS-only) 遇到 crash 或者 超时，Instrument 重新参试启动的次数。|`--backend-retries 3`|
@@ -82,4 +82,3 @@
 |`--intent-category`|android.intent.category.LAUNCHER|(Android-only) I用于启动 activity 的意图类别|`--intent-category android.intent.category.APP_CONTACTS`|
 |`--intent-flags`|0x10200000|(Android-only) 启动 activity 的标志|`--intent-flags 0x10200000`|
 |`--intent-args`|null|(Android-only) 启动 activity 时附带额外的意图|`--intent-args 0x10200000`|
-
