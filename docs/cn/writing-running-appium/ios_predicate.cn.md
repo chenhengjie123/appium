@@ -1,6 +1,6 @@
 # iOS 谓词(Predicate)
 
-在使用搜索策略  **谓词(Predicate)**中，你需要仔细的看 *'-ios uiautomation'* . 下面的API非常有用，请注意看： [UIAutomation JavaScript API](https://developer.apple.com/library/ios/documentation/DeveloperTools/Reference/UIAutomationRef/_index.html):
+在查看 *'-ios uiautomation'* 搜索策略时了解 **谓词(Predicate)** 十分必要。 [UIAutomation JavaScript API](https://developer.apple.com/library/ios/documentation/DeveloperTools/Reference/UIAutomationRef/_index.html)有下列几种非常有用的方法:
 
 ```center
 (UIAElement) UIAElementArray.firstWithPredicate(PredicateString predicateString)
