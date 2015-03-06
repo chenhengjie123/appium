@@ -1,8 +1,8 @@
 ## 移动手势的自动化
 
-然而Selenium WebDriver的规范对某些移动设备交互的支持，它的参数并不总是容易映射到底层的设备从而提供自动化的功能（像在iOS上进行UIAutomation）。为此，Appium在规范的最新版本中定义了新的触摸操作/多点触控 API
+虽然Selenium WebDriver的规范支持数种手机交互的方式，但它的参数并不能简单地映射到底层设备使用的自动化函数（像在iOS上的UIAutomation）。为此，Appium在规范的最新版本中定义了新的触摸操作/多点触控 API
 ([https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html#multiactions-1](https://dvcs.w3.org/hg/webdriver/raw-file/tip/webdriver-spec.html#multiactions-1))。
-注意，这跟使用原始JSON有线协议的早期版本的触摸操作 API不同。
+注意，这跟在早期版本中使用原始JSON Wire Protocol 的触摸操作 API不同。
 
 这些API可以让你使用多个驱动来建立任意手势。请参阅对应语言的Appium客户端文档，就可以找到使用这些API的例子。
 
@@ -13,7 +13,7 @@
 
 *TouchAction* 对象包含一连串的事件。
 
-在所有的appium客户端库中，触摸对象创建并给予了一连串的事件。
+在所有的appium客户端库中，触摸对象创建并给出一连串的事件。
 
 规范中的可用事件有：
  * 短按（press）
@@ -35,10 +35,10 @@ TouchAction().press(el0).moveTo(el1).release()
 
 Appium按顺序执行这些事件。你可以添加一个 `wait` 事件来控制相应手势的时间。
 
-appium客户端库有不同的方式来实现上述例子，比如：你可以传递一个坐标值或一个元素给 `moveTo` 事件。同时传递坐标和元素，会将坐标和元素对应起来，但不是绝对的。
+appium客户端库有不同的方式来实现上述例子，比如：你可以传递一个坐标值或一个元素给 `moveTo` 事件。同时传递坐标和元素，会将坐标和元素对应起来，但这不是绝对的。
 
 
-调用 `perform` 事件发送事件appium的整个序列，而触摸手势运行在设备上。
+调用 `perform` 事件发送整个事件序列给appium，从而使触摸手势在设备上运行。
 
 Appium客户端还允许人们直接通过驱动程序对象执行触摸操作, 而不是调用触摸操作对象的`perform`事件。
 
@@ -74,7 +74,7 @@ MultiAction().add(action0).add(action1).perform()
 
 ### 错误和解决方法
 
-一个不幸的缺陷存在于iOS的7.x的模拟器上，ScrollViews无法识别由UIAutomation创建的手势（在iOS上Appium使用为UIAutomation）。 为了实现此功能，我们已经提供了新的函数， `scroll`, 在许多情况下可以让你实现跟ScrollView一样的功能，顾名思义，滚动他！
+不幸的是有一个缺陷存在于iOS的7.x的模拟器上，ScrollViews无法识别由UIAutomation创建的手势（在iOS上Appium使用的是UIAutomation）。 为了实现此功能，我们已经提供了新的函数， `scroll`, 在许多情况下可以让你实现跟ScrollView一样的功能！
 
 
 
@@ -123,4 +123,3 @@ slider.sendKeys("0.1");
 **Android**
 
 与Android上的滑块进行交互的最佳方式是用触摸操作（TouchActions）。
-
