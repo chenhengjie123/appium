@@ -1,4 +1,4 @@
-# Appium 客户端库
+## Appium 客户端库
 
 Appium 有对应以下语言的客户端库:
 
@@ -21,11 +21,11 @@ Appium 有对应以下语言的客户端库:
 [nuget]:          http://www.nuget.org/packages/Appium.WebDriver/
 [cocoapods]:      https://github.com/appium/selenium-objective-c
 
-注意有些方法，比如 `endTestCoverage()` 目前还没有什么用。
-只有[这个问题](https://github.com/appium/appium/issues/2448)修复， 完整的覆盖率支持才会添加。
-如果你一定要用这些方法，请查看相应的文档。
+请注意：有些方法，比如 `endTestCoverage()` 目前不能提供完整支持。
+只有[这个问题](https://github.com/appium/appium/issues/2448)修复， 完整的覆盖率支持才会被添加。
+如果你一定要用这些方法，请先查看 Github 上关于 bindings 的文档。
 
-## 锁定
+### 锁定
 
 锁定屏幕
 
@@ -65,7 +65,7 @@ driver.LockDevice(3);
 [driver lockDeviceScreen:3];
 ```
 
-## 将 app 置于后台
+### 将 app 置于后台
 
 把当前应用放到后台去
 
@@ -104,7 +104,7 @@ driver.BackgroundApp(5);
 [driver runAppInBackground:3];
 ```
  
-## 收起键盘
+### 收起键盘
 
 收起键盘
 
@@ -143,6 +143,7 @@ driver.HideKeyboard("Done");
 // objective c
 [driver hideKeyboard];
 ```
+
 ### 启动 Activity
 
 在当前应用中打开一个 activity 或者启动一个新应用并打开一个 activity 。 *只能在 Android 上使用*
@@ -222,7 +223,7 @@ $this->openNotifications();
 [driver openNotifications];
 ```
 
-## 是否已经安装
+### 是否已经安装
 
 检查应用是否已经安装
 
@@ -262,7 +263,7 @@ driver.IsAppInstalled("com.example.android.apis-");
 [driver isAppInstalled:@"com.example.android.apis-"];
 ```
 
-## 安装应用
+### 安装应用
 
 安装应用到设备中去
 
@@ -301,7 +302,7 @@ driver.InstallApp("path/to/my.apk");
 [driver installAppAtPath:@"path/to/my.apk"];
 ```
 
-## 删除应用
+### 删除应用
 
 从设备中删除一个应用
 
@@ -340,7 +341,7 @@ driver.RemoveApp("com.example.android.apis");
 [driver removeApp:@"com.example.android.apis"];
 ```
 
-## 摇晃 (Shake)
+### 摇晃 (Shake)
 
 模拟设备摇晃
 
@@ -379,7 +380,7 @@ driver.ShakeDevice();
 [driver shakeDevice];
 ```
 
-## 关闭应用
+### 关闭应用
 
 关闭应用
 
@@ -418,9 +419,9 @@ driver.CloseApp();
 [driver closeApp];
 ```
 
-## 启动 (Launch)
+### 启动 (Launch)
 
-根据服务关键字( desired capabilities )启动会话（ session ）。请注意这必须在设定 `autoLaunch=false` 关键字时才能生效。这不是用于启动指定的 app/activities --你可以使用 `start_activity` 做到这个效果。这是用来继续进行使用了 `autoLaunch=false` 关键字时的初始化（"启动"）流程的。
+根据服务关键字 (desired capabilities) 启动会话 (session) 。请注意这必须在设定 `autoLaunch=false` 关键字时才能生效。这不是用于启动指定的 app/activities ————你可以使用 `start_activity` 做到这个效果————这是用来继续进行使用了 `autoLaunch=false` 关键字时的初始化 (Launch) 流程的。
 
 ```ruby
 # ruby
@@ -457,9 +458,11 @@ driver.LaunchApp();
 [driver launchApp];
 ```
 
-## 重置 (Reset)
+### 重置 (Reset)
 
 应用重置
+
+ (翻译者注：相当于卸载重装应用) 
 
 ```ruby
 # ruby
@@ -496,7 +499,7 @@ driver.ResetApp();
 [driver resetApp];
 ```
 
-## 可用上下文 (context)
+### 可用上下文 (context)
 
 列出所有的可用上下文
 
@@ -535,7 +538,7 @@ driver.GetContexts()
 NSArray *contexts = driver.allContexts;
 ```
 
-## 当前上下文 (context)
+### 当前上下文 (context)
 
 列出当前上下文
 
@@ -574,7 +577,7 @@ driver.GetContext()
 NSString *context = driver.context;
 ```
 
-## 切换到默认的上下文 (context)
+### 切换到默认的上下文 (context)
 
 将上下文切换到默认上下文
 
@@ -613,7 +616,7 @@ driver.SetContext();
 [driver setContext:nil];
 ```
 
-## 应用的字符串 (App Strings)
+### 应用的字符串 (App Strings)
 
 获取应用的字符串
 
@@ -654,7 +657,7 @@ driver.GetAppStrings();
 [driver appStringsForLanguage:"@ru"];
 ```
 
-## 按键事件 (Key Event)
+### 按键事件 (Key Event)
 
 给设备发送一个按键事件
 
@@ -694,10 +697,9 @@ NSError *err;
 [driver triggerKeyEvent:176 metastate:0 error:&err];
 ```
 
-## 当前 Activity
+### 当前 Activity
 
-只能在 Android 上使用
-获取当前 activity。
+获取当前 activity。只能在 Android 上使用
 
 ```ruby
 # ruby
@@ -735,7 +737,7 @@ NSError *err;
 [driver currentActivity];
 ```
 
-## 触摸动作(TouchAction) / 多点触摸动作(MultiTouchAction)
+### 触摸动作(TouchAction) / 多点触摸动作(MultiTouchAction)
 
 生成触摸动作的接口。这部分文档很快将会补充更多的内容进来。
 
@@ -803,7 +805,7 @@ action.Press(el, 10, 10).Release();
 action.Perform ();
 ```
 
-## 滑动(Swipe)
+### 滑动(Swipe)
 
 模拟用户滑动
 
@@ -849,9 +851,9 @@ $this->swipe(75, 500, 75, 0, 800);
 todo: c#
 ```
 
-## 捏（Pinch）
+### 捏 (Pinch) 
 
-捏屏幕（双指往内移动来缩小屏幕）
+捏屏幕 (双指往内移动来缩小屏幕) 
 
 ```ruby
 # ruby
@@ -909,9 +911,9 @@ $this->pinch($el);
 driver.Pinch(25, 25)
 ```
 
-## 放大（Zoom）
+### 放大 (Zoom) 
 
-放大屏幕（双指往外移动来放大屏幕）
+放大屏幕 (双指往外移动来放大屏幕) 
 
 ```ruby
 # ruby
@@ -970,7 +972,7 @@ $this->zoom($el);
 driver.Zoom(100, 200);
 ```
 
-### 滑动到（Scroll To）
+### 滑动到 (Scroll To) 
 
 滑动到某个元素。
 
@@ -1011,7 +1013,7 @@ $this->scroll($els[count($els) - 1], $els[0]);
 todo: csharp
 ```
 
-## 拉出文件（Pull File）
+### 拉出文件 (Pull File) 
 
 从设备中拉出文件
 
@@ -1046,7 +1048,7 @@ $this->pullFile('Library/AddressBook/AddressBook.sqlitedb');
 driver.PullFile("Library/AddressBook/AddressBook.sqlitedb");
 ```
 
-## 推送文件(Push file)
+### 推送文件(Push file)
 
 推送文件到设备中去
 
@@ -1091,8 +1093,8 @@ driver.PushFile("/data/local/tmp/file.txt", "some data for the file");
 ### 设置
 
 
-从这里你可以找到获取/设置 appium 系统设置的示例代码。
-想知道它如何工作，以及它支持哪些设置，请查看[关于设置的文档](/docs/en/advanced-concepts/settings.md)
+从这里你可以获取/设置 appium 的服务器设置。
+想知道它如何工作，以及它支持哪些设置，请查看[关于设置的文档](/docs/en/advanced-concepts/settings.cn.md)
 
 ```ruby
 current_settings = get_settings
@@ -1128,8 +1130,7 @@ Dictionary<String, Object>settings = driver.GetSettings();
 driver.IgnoreUnimportantViews(true);
 ```
 
-
-## Appium 桌面应用
+### Appium 桌面应用
 
 Appium 的桌面应用支持 OS X 和 Windows.
 
