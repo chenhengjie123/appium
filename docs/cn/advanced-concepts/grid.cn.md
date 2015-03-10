@@ -43,3 +43,8 @@
 ```
 
 可以在 <a href="http://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/Platform.html">这里</a>查看有效的 platform 参数。
+<<<<<<< HEAD
+=======
+如果没有给出url、host和 port，配置会自动指向本地：whatever-port-Appium-started-on。
+如果你的Appium服务和Selenium Grid服务没有运行在同一台机器上，为确保Selenium Grid连接正常，请在你的host & url docs上使用外部其它名称或IP地址，而非localhost 和 127.0.0.1
+>>>>>>> FETCH_HEAD

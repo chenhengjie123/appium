@@ -6,7 +6,11 @@ Appimu时候支持的平台版本和上述测试方式的必备条件。
 
 ## iOS 平台支持
 
+<<<<<<< HEAD
 请移步到 [Running on OS X: iOS](running-on-osx.md) 这里介绍了在iOS系统下使用Appium的必备条件和安装说明。
+=======
+请移步到 [Running on OS X: iOS](running-on-osx.cn.md) 这里介绍了在iOS系统下使用Appium的必备条件和安装说明。
+>>>>>>> FETCH_HEAD
 
 * 版本号：6.1 , 7.0 , and 7.1
 * 支持设备： iPhone 模拟器, iPad 模拟器以及iPhones 和 iPads真机
@@ -16,19 +20,32 @@ Appimu时候支持的平台版本和上述测试方式的必备条件。
 * 是否支持内嵌浏览器：支持, Safari浏览器已经通过测试。对于
   真机,则需要安装调试工具 ios-webkit-remote-debugger，很遗憾
   对于Safari的原生界面的自动化是不支持的。更多信息请移步
+<<<<<<< HEAD
   至[mobile web doc](mobile-web.md) 。
 * 混合方式应用是否支持: 支持. 同样对于真机需要安装调试工具
   ios-webkit-remote-debugger，更多详情请移步至  
   [hybrid doc](hybrid.md) 查看详情。
+=======
+  至[mobile web doc](/docs/cn/writing-running-appium/mobile-web.cn.md) 。
+* 混合方式应用是否支持: 支持. 同样对于真机需要安装调试工具
+  ios-webkit-remote-debugger，更多详情请移步至  
+  [hybrid doc](/docs/cn/advanced-concepts/hybrid.cn.md) 查看详情。
+>>>>>>> FETCH_HEAD
 * 是否支持在同一个session中的支持多种应用自动化：不支持
 * 是否支持同时执行多个设备： 不支持
 * 是否支持第三方提供应用: 只支持在模拟器上有限的第三方应用(例如:喜好,地图等)。
 
 ## Android 平台
 
+<<<<<<< HEAD
 请移步至 [Running on OS X: Android](running-on-osx.md),
 [Running on Windows](running-on-windows.md), 或者
 [Running on Linux](running-on-linux.md) 获得在不同操作系统下android平台对appium的支
+=======
+请移步至 [Running on OS X: Android](running-on-osx.cn.md),
+[Running on Windows](running-on-windows.cn.md), 或者
+[Running on Linux](running-on-linux.cn.md) 获得在不同操作系统下android平台对appium的支
+>>>>>>> FETCH_HEAD
 持和安装配置文档。
 
 * 支持版本: android 2.3 平台及以上
@@ -47,8 +64,13 @@ Appimu时候支持的平台版本和上述测试方式的必备条件。
   Chromium下才能运行自动化测试。 伴随着android 4.4+版本的
   出现。 自动化测试则可以运行在内置浏览器的应用程序。但是
   需要在测试设备环境下安装Chrome/Chromium/浏览器 。请移
+<<<<<<< HEAD
   步至 [mobile web doc](mobile-web.md) 获取更多详情。
 * 混合应用是否支持: 支持。请移步至 [hybrid doc](hybrid.md) 参考相关文档。
+=======
+  步至 [mobile web doc](/docs/cn/writing-running-appium/mobile-web.cn.md) 获取更多详情。
+* 混合应用是否支持: 支持。请移步至 [hybrid doc](/docs/cn/advanced-concepts/hybrid.cn.md) 参考相关文档。
+>>>>>>> FETCH_HEAD
   * 通过默认的Appium的后台支持android 4.4 以上的版本
   * 通过Selendroid的后台支持android 2.3 以上的版本
 * 是否支持在一个session里的多个应用自动化：支持(但是不支
@@ -56,6 +78,10 @@ Appimu时候支持的平台版本和上述测试方式的必备条件。
 * 是否支持多个设备同时运行自动化测试： 支持, 尽管Appium 必
   须要启动另一个端口即通过添加参数的方式运行命令行,例如 `-
   -port`, `--bootstrap-port` (或者 `--selendroid-port`) 或者
+<<<<<<< HEAD
   `--chromedriver-port`. 更多详情请移步至 [server args doc](server-args.md) 。
+=======
+  `--chromedriver-port`. 更多详情请移步至 [server args doc](/docs/cn/writing-running-appium/server-args.cn.md) 。
+>>>>>>> FETCH_HEAD
 * 是否支持第三方应用自动化：支持(但是不支持Selendroid 后台
   运行的场景)

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # 在windows上运行appium
 
 ### 限制
+=======
+# 在Windows上运行Appium
+
+### 局限性
+>>>>>>> FETCH_HEAD
 
 如果你在windows上安装appium，你没法使用预编译专用于OS X的.app文件，你也将不能测试IOS apps，因为appium依赖OS X专用的库来支持IOS测试。这意味着你只能通过在mac上来运行IOS的app测试。这点限制挺大。
 
@@ -25,6 +31,7 @@
 
 ### 运行Appium
 
+<<<<<<< HEAD
 要在windows上运行测试用例，你需要先启动Android模拟器或者连接上一个API Level17以上的android真机。
 然后在命令行运行appium 
     node .
@@ -32,6 +39,17 @@
 
 ### 备注
 * 你必须带上--no-reset和--full-reset标记，以用于windows上的android
+=======
+要在windows上运行测试用例，你需要先启动Android模拟器或者连接上一个API Level17以上的android真机。然后在命令行运行`appium`。
+如果你是使用源码运行Appium的，请在你所安装的appium目录下执行node.js命令：
+```center
+node .
+```
+
+### 备注
+* 在windows系统下运行appium.app时，需要使用管理员权限；当你通过源码的形式运行Appium时，也需要使用管理员权限启动CMD。
+* 在windows系统下运行Android项目时，启动Appium时请带上`--no-reset`或`--full-reset`命令。
+>>>>>>> FETCH_HEAD
 * 有一个硬件加速模拟器用于android，但是它有自己的一些限制，如果你想了解更多，请参考[页面](android-hax-emulator.cn.md)
 * 确保在你的AVD的`config.ini`中有一个配置项为`hw.battery=yes` 
 
@@ -53,5 +71,8 @@
 ### 更新appium
 通过`npm install -g appium` 来更新appium即可
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> FETCH_HEAD
 如果有任何疑问，欢迎到testerhome.com来交流

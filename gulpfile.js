@@ -1,5 +1,7 @@
 "use strict";
 
+var argv = require('yargs').argv;
+
 var gulp = require('gulp'),
     path = require('path'),
     mochaStream = require('spawn-mocha-parallel').mochaStream,
@@ -19,16 +21,16 @@ var gulp = require('gulp'),
     through = require('through'),
     promisePipe = require("promisepipe"),
     assert = require('assert'),
-    splitArray = require('./ci/utils/split-array');
+    splitArray = require('./test/helpers/split-array');
 
-var argv = require('yargs').argv;
 var childProcs = [];
 
 function newMochaOpts() {
   return {
     flags: {
       u: 'bdd-with-opts',
-      R: process.env.MOCHA_REPORTER || 'nyan'
+      R: process.env.MOCHA_REPORTER || 'nyan',
+      'c': true
     },
     env: _.clone(process.env),
     bin: path.join(__dirname,  'node_modules/.bin/mocha'),
@@ -147,6 +149,7 @@ gulp.task('launch-emu', function () {
   var LOG_PREPEND= 'emu --> ';
   var deferred = Q.defer();
 
+  var emuErrored = false;
   function waitForEmu() {
     var INIT_WAIT = 5000;
     var MAX_WAIT_MS = 120000;
@@ -154,6 +157,9 @@ gulp.task('launch-emu', function () {
     var startMs = Date.now();
     function _waitForEmu () {
       function retry() {
+        if (emuErrored) {
+          throw new Error('Emulator errored');
+        }
         if (Date.now() - startMs > MAX_WAIT_MS) {
           throw new Error('Emulator did not show up');
         }
@@ -201,6 +207,10 @@ gulp.task('launch-emu', function () {
   childProcs.push(child);
   child.stdout.pipe(out);
   child.stderr.pipe(out);
+  child.on('error', function (err) {
+    emuErrored = true;
+    deferred.reject(err);
+  });
   child.on('close', function () {
     deferred.reject('Something went wrong!');
   });

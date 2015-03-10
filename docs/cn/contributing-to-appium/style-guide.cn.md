@@ -72,7 +72,11 @@
     ```
 
 
+<<<<<<< HEAD
 *   左花括号应该和 `function`, `if` 等 写在同一行, `else` 被夹在两个花括号中间。
+=======
+*   左花括号应该和 `function`, `if` 等 写在同一行， `else` 被夹在两个花括号中间。
+>>>>>>> FETCH_HEAD
 
     ```js
     if (foo === bar) {
@@ -142,6 +146,15 @@
     }
     ```
 
+<<<<<<< HEAD
+=======
+	除了出错后直接调用回调函数（callback）处理错误（error）的语句
+
+    ```javascript
+    if (err) return cb(err);
+    ```
+
+>>>>>>> FETCH_HEAD
 *   通过拓展原型，来创建子类
 
     ```js
