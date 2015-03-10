@@ -503,6 +503,8 @@ driver.ResetApp();
 
 列出所有的可用上下文
 
+翻译备注：context可以理解为 可进入的窗口 。例如，对于原生应用，可用的context和默认context均为`NATIVE_APP`。详情可查看[对混合应用进行自动化测试](http://appium.io/slate/en/v1.3.4/?ruby#automating-hybrid-apps)
+
 ```ruby
 # ruby
 context_array = available_contexts
