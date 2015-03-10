@@ -7,9 +7,9 @@ Appium支持webdriver定位策略的子集
 
 另外， Appium 还支持部分 [Mobile JSON 连接协议](https://code.google.com/p/selenium/source/browse/spec-draft.md?repo=mobile) 的定位策略
 
-* `ios uiautomation`: 一个字符串对应一个递归元素的搜索使用 [UIAutomation library](ios_predicate.cn.md) (iOS-only)
-* `android uiautomator`: 一个对应一个递归元素的字符串 搜索使用 [UiAutomator Api](uiautomator_uiselector.cn.md) (Android-only)
-* `accessibility id`: 一个对应于一个递归元素要查找的字符串 使用ID /Name，本地可选择使用。
+* `ios uiautomation`: 一个递归地、对应使用 [UIAutomation library](ios_predicate.cn.md) 搜索元素的字符串(iOS-only)
+* `android uiautomator`: 一个递归地、对应使用 [UiAutomator Api](uiautomator_uiselector.cn.md)搜索元素的字符串 (Android-only)
+* `accessibility id`: 一个递归地、使用本地Accessibility选项实现的Id/Name进行元素搜索的字符串。
 
 ### 存在的问题
 
