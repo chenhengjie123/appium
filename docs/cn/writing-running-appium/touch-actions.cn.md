@@ -89,9 +89,9 @@ MultiAction().add(action0).add(action1).perform()
 
 ```javascript
 // javascript
-// scroll the view down
+// 把视图往下滑动
 driver.execute("mobile: scroll", [{direction: 'down'}])
-// continue testing
+// 继续测试
 ```
 
 * **Java:**

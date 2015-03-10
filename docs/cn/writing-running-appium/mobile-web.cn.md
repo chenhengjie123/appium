@@ -68,11 +68,11 @@ capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator")
 当你要在真机上的Safari中执行你的测试脚本之前你需要先注意以下几点：
 
 * 安装并运行 **ios-webkit-debug-proxy**，并监听27753端口 (具体可以参考([hybrid docs](../advanced-concepts/hybrid.cn.md))
-* 打开iOS真机中的 **web inspector**，可以在iOS6.0或更高版本中的 **设置 > safari > 高级 **找到。
-* 创建一个 **provisioning profile**能够帮助你配置safariLauncher。
+* 打开iOS真机中的 **web inspector**，可以在iOS6.0或更高版本中的 **设置 > safari > 高级**找到。
+* 创建一个 **provisioning profile** 能够帮助你配置safariLauncher。
 
 你可以前往 **Apple Developers Member Center** 创建一个launcher profile:
-  *  **第一步:** 创建一个 **新的App Id ** 同时设置WildCard App ID这个选项置为"*"
+  *  **第一步:** 创建一个 **新的App Id** 同时设置WildCard App ID这个选项置为"*"
   *  **第二步:** 为步骤1的App Id创建一个 **new Development Profile** 。
   *  **第三步:** 选择你的 **certificate(s) and device(s)** 并选择下一步。
   *  **第四步:** 设置profile的名称以及 **generate the profile**。
@@ -106,19 +106,19 @@ $ node /lib/server/main.js -U <UDID>
 
 ```java
 // java
-//setup the web driver and launch the webview app.
+// 配置web driver并启动webview应用
 DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
 URL url = new URL("http://127.0.0.1:4723/wd/hub");
 AppiumDriver driver = new AppiumDriver(url, desiredCapabilities);
 
-// Navigate to the page and interact with the elements on the guinea-pig page using id.
+// 跳转到指定页面并在该页面所以用元素id进行交互
 driver.get("http://saucelabs.com/test/guinea-pig");
 WebElement div = driver.findElement(By.id("i_am_an_id"));
-Assert.assertEquals("I am a div", div.getText()); //check the text retrieved matches expected value
-driver.findElement(By.id("comments")).sendKeys("My comment"); //populate the comments field by id.
+Assert.assertEquals("I am a div", div.getText()); //跳转到指定页面并在该页面所以用元素id进行交互
+driver.findElement(By.id("comments")).sendKeys("My comment"); //通过id查找评论框并输入
 
-//close the app.
+// 关闭应用
 driver.quit();
 ```
 
@@ -126,20 +126,20 @@ driver.quit();
 
 ```python
 # python
-# setup the web driver and launch the webview app.
+# 配置web driver并启动webview应用
 capabilities = { 'browserName': 'Safari' }
 driver = webdriver.Remote('http://localhost:4723/wd/hub', capabilities)
 
-# Navigate to the page and interact with the elements on the guinea-pig page using id.
+# 跳转到指定页面并在该页面所以用元素id进行交互
 driver.get('http://saucelabs.com/test/guinea-pig');
 div = driver.find_element_by_id('i_am_an_id')
-# check the text retrieved matches expected value
+# 检查文本是否符合预期
 assertEqual('I am a div', div.text)
 
-# populate the comments field by id
+# 通过id查找评论框并输入
 driver.find_element_by_id('comments').send_keys('My comment')
 
-# close the driver
+# 关闭应用
 driver.quit()
 ```
 

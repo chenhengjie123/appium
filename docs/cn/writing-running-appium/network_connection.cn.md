@@ -22,16 +22,16 @@ Selenium 的 [Mobile JSON Wire Protocol Specification](https://code.google.com/p
 
 ```javascript
 // javascript
-// set airplane mode
+// 设置网络连接为飞行模式
 driver.setNetworkConnection(1)
 
-// set wifi only
+// 设置网络连接为仅启用Wifi
 driver.setNetworkConnection(2)
 
-// set data only
+// 设置网络连接为仅启用数据连接
 driver.setNetworkConnection(4)
 
-// set wifi and data
+// 设置网络连接为启用数据连接和Wifi
 driver.setNetworkConnection(6)
 ```
 
@@ -42,19 +42,19 @@ driver.setNetworkConnection(6)
 driver.getNetworkConnection().then(function (connectionType) {
   switch (connectionType) {
     case 0:
-      // no network connection
+      // 无网络
       break;
     case 1:
-      // airplane mode
+      // 飞行模式
       break;
     case 2:
       // wifi
       break;
     case 4:
-      // data
+      // 数据连接
       break;
     case 6:
-      // wifi and data
+      // wifi和数据连接
       break;
   }
 });
