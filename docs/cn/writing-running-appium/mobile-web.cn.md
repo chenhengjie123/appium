@@ -57,11 +57,9 @@ capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone Simulator")
 
 ### iOS真机上的Safari浏览器
 
-为了能够在真机上的Safari执行测试，我们使用了[SafariLauncher App](https://github.com/snevesbarros/SafariLauncher)来启动Safari。
-一旦Safari被启动，则使用[ios-webkit-webkit-proxy](https://github.com/google/ios-webkit-debug-proxy)来自动启动Safari的远程调试功能。
+For instruction on how to install and run ios-webkit-debugger-proxy see [iOS webKit debug proxy](/docs/en/advanced-concepts/ios-webkit-debug-proxy.md) documentation.
 
-**提示:** 目前在ios-webkit-debug-proxy中有一个[问题](https://github.com/google/ios-webkit-debug-proxy/issues/38)。
-你必须添加信任才能开始运行ios-webkit-debug-proxy。
+想了解如何安装和运行 ios-webkit-debugger-proxy ，请查看 [iOS webKit debug proxy](/docs/en/advanced-concepts/ios-webkit-debug-proxy.cn.md) 文档。
 
 ### 前期设置
 

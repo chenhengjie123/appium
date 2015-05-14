@@ -74,7 +74,7 @@ MultiAction().add(action0).add(action1).perform()
 
 ### 缺陷和解决方法
 
-不幸的是有一个缺陷存在于iOS的7.x的模拟器上，ScrollViews无法识别由UIAutomation创建的手势 (在iOS上Appium使用的是UIAutomation) 。 为了实现此功能，我们已经提供了新的函数， `scroll`, 在大部分情况下可以让你实现跟ScrollView一样的功能！
+不幸的是有一个缺陷在 iOS 7.0~8.x 的模拟器上。ScrollViews，CollectionViews 和 TableViews 无法识别由 UIAutomation 创建的手势 （在 iOS 上 Appium 使用的是 UIAutomation ）。为了解决这个问题，我们提供了一个新的函数， scroll ，让你在大部分情况下做你想对这类控件做的操作——如名称所示——滚动。
 
 
 
@@ -85,16 +85,49 @@ MultiAction().add(action0).add(action1).perform()
 `executeScript` 方法。 可以通过在命令前加 `mobile: ` 的前缀来使用滚动。
 请参见下面的例子：
 
-* **WD.js:**
+在滚动前，通过参数传入你想滚动的方向。
 
 ```javascript
 // javascript
-// 把视图往下滑动
 driver.execute("mobile: scroll", [{direction: 'down'}])
-// 继续测试
 ```
 
-* **Java:**
+```java
+// java
+JavascriptExecutor js = (JavascriptExecutor) driver;
+HashMap<String, String> scrollObject = new HashMap<String, String>();
+scrollObject.put("direction", "down");
+js.executeScript("mobile: scroll", scrollObject);
+```
+
+```ruby
+# ruby
+execute_script 'mobile: scroll', direction: 'down'
+```
+
+```python
+# python
+driver.execute_script("mobile: scroll", {"direction": "down"})
+```
+
+```csharp
+// c#
+Dictionary<string, string> scrollObject = new Dictionary<string, string>();
+scrollObject.Add("direction", "down");
+((IJavaScriptExecutor)driver).ExecuteScript("mobile: scroll", scrollObject));
+```
+
+```php
+$params = array(array('direction' => 'down'));
+$driver->executeScript("mobile: scroll", $params);
+```
+
+使用方向和元素来滚动的示例。
+
+```javascript
+// javascript
+driver.execute("mobile: scroll", [{direction: 'down', element: element.value}]);
+```
 
 ```java
 // java
@@ -103,6 +136,29 @@ HashMap<String, String> scrollObject = new HashMap<String, String>();
 scrollObject.put("direction", "down");
 scrollObject.put("element", ((RemoteWebElement) element).getId());
 js.executeScript("mobile: scroll", scrollObject);
+```
+
+```ruby
+# ruby
+execute_script 'mobile: scroll', direction: 'down', element: element.ref
+```
+
+```python
+# python
+driver.execute_script("mobile: scroll", {"direction": "down", element: element.getAttribute("id")})
+```
+
+```csharp
+// c#
+Dictionary<string, string> scrollObject = new Dictionary<string, string>();
+scrollObject.Add("direction", "down");
+scrollObject.Add("element", <element_id>);
+((IJavaScriptExecutor)driver).ExecuteScript("mobile: scroll", scrollObject));
+```
+
+```php
+$params = array(array('direction' => 'down', 'element' => element.GetAttribute("id")));
+$driver->executeScript("mobile: scroll", $params);
 ```
 
 **滑块的自动化**

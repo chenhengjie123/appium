@@ -49,11 +49,13 @@
 |`intentCategory`| 用于启动 activity 的 intent category。 (默认值 `android.intent.category.LAUNCHER`)  | 如 `android.intent.category.LAUNCHER`, `android.intent.category.APP_CONTACTS`
 |`intentFlags`| 用于启动 activity 的标识 ( flags )  (默认值 `0x10200000`)  | 如 `0x10200000`
 |`optionalIntentArguments`| 用于启动 activity 的额外 intent 参数。请查看 [Intent 参数](http://developer.android.com/tools/help/adb.html#IntentSpec) | 如 `--esn <EXTRA_KEY>`, `--ez <EXTRA_KEY> <EXTRA_BOOLEAN_VALUE>`
-|`stopAppOnReset`| 在使用 adb 启动应用前停止被测应用的进程 ( process ) 。如果被测应用是被另一个应用创建的，当这个参数被设定为 false 时，允许另一个应用的进程在使用 adb 启动被测应用时继续存活。默认值 `true`| `true` 或 `false`|
+|`dontStopAppOnReset`| 在使用 adb 启动应用时不要停止被测应用的进程。如果被测应用是由另一个锚应用（anchor app）创建的，请把这个参数设置为 `false` 以允许锚应用在使用 adb 启动被测应用时保持运行。换句话说，当 `dontStopAppOnReset` 设为 `true` 时，我们在 `adb shell am start` 命令中不会包含 `-S` 标志。如果这个参数没有被设置或设为 `false`，我们会加入 `-S` 标志。默认值： `false`| `true` 或 `false`|
 |`unicodeKeyboard`| 使用 Unicode 输入法。默认值 `false`| `true` 或 `false`|
 |`resetKeyboard`| 在设定了 `unicodeKeyboard` 关键字的 Unicode 测试结束后，重置输入法到原有状态。如果单独使用，将会被忽略。默认值 `false`| `true` 或 `false`|
 |`noSign`| 跳过检查和对应用进行 debug 签名的步骤。只能在使用 UiAutomator 时使用，使用 selendroid 是不行。默认值 `false` | `true` 或 `false`|
-|`ignoreUnimportantViews`| 调用 uiautomator 的函数 `setCompressedLayoutHierarchy()`。由于 Accessibility 命令在忽略部分元素的情况下执行速度会加快，这个关键字能加快测试执行的速度。被忽略的元素将不能够被找到，因此这个关键字同时也被实现成可以随时改变的 *设置 ( settings ) * 。默认值 `false` | `true` 或 `false`
+|`ignoreUnimportantViews`| 调用 uiautomator 的函数 `setCompressedLayoutHierarchy()`。由于 Accessibility 命令在忽略部分元素的情况下执行速度会加快，这个关键字能加快测试执行的速度。被忽略的元素将不能够被找到，因此这个关键字同时也被实现成可以随时改变的 *设置 ( settings ) * 。默认值 `false` | `true` 或 `false`|
+|`disableAndroidWatchers`| 关闭 android 监测应用无响应（ANR）和崩溃（crash）的监视器，这能够在 android 设备/模拟器上减少 cpu 使用量。这个参数只能在使用 UiAutomator 时工作，在使用 selendroid 时无效。默认值： `false`。| `true` 或者 `false`|
+|`chromeOptions`| 允许传入 chrome driver 使用的 chromeOptions 参数。请查阅 [chromeOptions](https://sites.google.com/a/chromium.org/chromedriver/capabilities) 了解更多信息。| `chromeOptions: {args: ['--disable-popup-blocking']}` |
 
 ### iOS特有
 
@@ -71,6 +73,7 @@
 |`autoDismissAlerts`| 当 iOS 的个人信息访问警告 (如 位置、联系人、图片) 出现时，自动选择不接受( Dismiss )。默认值 `false`。|`true` 或者 `false`|
 |`nativeInstrumentsLib`| 使用原生 intruments 库 (即关闭 instruments-without-delay ) |`true` 或者 `false`|
 |`nativeWebTap`| (Sim-only) 在Safari中允许"真实的"，非基于 javascript 的 web 点击 (tap) 。 默认值： `false`。注意：取决于 viewport 大小/比例， 点击操作不一定能精确地点中对应的元素。|`true` 或者 `false`|
+|`safariInitialUrl`| (Sim-only) (>= 8.1) Safari 的初始地址。默认值是一个本地的欢迎页面 | 例如： `https://www.github.com` |
 |`safariAllowPopups`| (Sim-only) 允许 javascript 在 Safari 中创建新窗口。默认保持模拟器当前设置。|`true` 或者 `false`|
 |`safariIgnoreFraudWarning`| (Sim-only) 阻止 Safari 显示此网站可能存在风险的警告。默认保持浏览器当前设置。|`true` 或者 `false`|
 |`safariOpenLinksInBackground`| (Sim-only) Safari 是否允许链接在新窗口打开。默认保持浏览器当前设置。|`true` 或者 `false`|
